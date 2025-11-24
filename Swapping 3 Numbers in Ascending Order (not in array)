@@ -1,0 +1,54 @@
+
+#include<stdio.h>
+void swap(int *a,int*b,int*c)
+   {
+    if (*a>*b && *a>*c)
+    {
+        if(*b>*c)
+        {
+            printf("Numbers in actual order: %d %d %d\n",*a,*b,*c);
+            printf("Numbers in ascending order: %d %d %d\n",*c,*b,*a);
+        }
+        else
+        {
+            printf("Numbers in actual order: %d %d %d\n",*a,*b,*c);
+            printf("Numbers in ascending order: %d %d %d\n",*b,*c,*a);
+        }
+    }
+    else if (*b>*a && *b>*c)
+    {
+        if(*a>*c)
+        {
+            printf("Numbers in actual order: %d %d %d\n",*a,*b,*c);
+            printf("Numbers in ascending order: %d %d %d\n",*c,*a,*b);
+        }
+        else
+        {
+            printf("Numbers in actual order: %d %d %d\n",*a,*b,*c);
+            printf("Numbers in ascending order: %d %d %d\n",*c,*a,*b);
+        }
+    }
+    else
+    {
+        if(*b>*a)
+        {
+            printf("Numbers in actual order: %d %d %d\n",*a,*b,*c);
+            printf("Numbers in ascending order: %d %d %d\n",*a,*b,*c);
+        }
+        else
+        {
+            printf("Numbers in actual order: %d %d %d\n",*a,*b,*c);
+            printf("Numbers in ascending order: %d %d %d\n",*b,*a,*c);
+        }
+    }
+    }
+    
+int main(){
+    int i,j,k;
+    printf("Enter the numbers:");
+    scanf("%d %d %d",&i,&j,&k);
+    swap(&i,&j,&k);
+    
+    
+    return 0;
+}
