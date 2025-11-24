@@ -1,0 +1,74 @@
+#include<stdio.h>
+float domestic(int u)
+{
+    float bill=0;
+    int u1,u2,u3;
+    if(u>=500)
+    {
+        bill=bill+(100*2.75);
+        bill=bill+(500*4.5);
+        u1=u-500;
+        bill=bill+(u1*5);
+        return bill;
+    }
+    else if(u>=101 && u<500)
+    {
+      bill=bill+(100*2.75);
+      u2=u-100;
+      bill=bill+(u2*4.5);
+      return bill;
+    }
+    else
+    {
+        bill=bill+(u*2.75);
+        return bill;
+    }
+}
+float commercial(int uc)
+{
+    float billc=0;
+    int uc1,uc2,uc3;
+    if(uc>=500)
+    {
+        billc=billc+(200*5);
+        billc=billc+(500*5.5);
+        uc1=uc-500;
+        billc=billc+(uc1*6);
+        return billc;
+    }
+    else if(uc>=201 && uc<500)
+    {
+      billc=billc+(200*5);
+      uc2=uc-200;
+      billc=billc+(uc2*5.5);
+      return billc;
+    }
+    else
+    {
+        billc=billc+(uc*5);
+        return billc;
+    }
+}
+
+int main()
+{
+    int customerID,units,category;
+    printf("Enter the customer ID");
+    scanf("%d",&customerID);
+    printf("Enter the units:");
+    scanf("%d",&units);
+    printf("Enter the category(1 for domestic,2 for commercial):");
+    scanf("%d",&category);
+    float billd,billc;
+    if (category ==1)
+    {
+        billd=domestic(units);
+        printf("Your bill amount is Rs. %.2f",billd);
+    }
+    else
+    {
+        billc=commercial(units);
+        printf("Your bill amount is Rs. %.2f",billc);
+    }
+    return 0;
+}
