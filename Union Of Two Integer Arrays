@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main()
+{
+    int n1,n2,i,j,k,l;
+    printf("Enter the number of elements in the first array:");
+    scanf("%d",&n1);
+    int arr1[n1];
+    printf("Enter the elemnts of the first array:");
+    for(i=0;i<n1;i++){
+        scanf("%d",&arr1[i]);
+        }
+    printf("Enter the number of elements in the second array:");
+    scanf("%d",&n2);
+    int arr2[n2];
+    printf("Enter the elemnts of the second array:");
+    for(i=0;i<n2;i++){
+        scanf("%d",&arr2[i]);
+        } 
+        j=n1+n2;
+        int arr[j];
+        for(i=0;i<n1;i++){
+        arr[i]=arr1[i];
+        }
+        for(i=n1;i<j;i++){
+           arr[i]=arr2[i-n1];
+        }
+        for(i=0;i<j;i++){
+            for(k=i+1;k<j;k++){
+                if(arr[i]==arr[k]){
+                    for(l=k;l<j-1;l++)
+                    {
+                        arr[l]=arr[l+1];
+                    }
+                    j--;
+                    k--;
+                }
+            }
+            
+        }
+         printf("Union:");
+        for(i=0;i<j;i++){
+           
+            printf("%d ",arr[i]);
+        }
+    return 0;
+}
