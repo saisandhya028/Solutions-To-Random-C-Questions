@@ -1,0 +1,22 @@
+#include <stdio.h>
+int powerr(int a,int b){
+    int result=1;
+    if(b==0)
+    {
+        return 1;
+    }
+    else
+    {
+        return a*powerr(a,b-1);
+    }
+}
+
+int main()
+{
+    int x,n,ans;
+    printf("Enter value of x and n: ");
+    scanf("%d %d",&x,&n);
+    ans=powerr(x,n);
+    printf("%d",ans);
+    return 0;
+}
