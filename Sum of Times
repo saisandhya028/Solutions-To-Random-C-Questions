@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<string.h>
+struct Time{
+  int hours;
+  int minutes;
+  int seconds;
+};
+/*void inputTime(){
+    int *h,*m,*s;
+    printf("Enter hours,minutes and seconds:");
+    scanf("%d %d %d",*h,*m,*s);
+    if(*h>12 || *m>60 || *s>60)
+    {
+        printf("Invalid format");
+    }
+}
+void displayTime()
+{
+    if(sizeof(*h)==4 || sizeof(*m)==4 || sizeof)
+}*/
+void addTime(struct Time t1,struct Time t2)
+{
+    int i,arr3[3];
+    arr3[0]=t1.hours+t2.hours;
+    arr3[1]=t1.minutes+t2.minutes;
+    arr3[2]=t1.seconds+t2.seconds;
+    if(arr3[0]>12)
+    {
+        arr3[0]=arr3[0]-12;
+    }
+    if(arr3[1]>60)
+    {
+        arr3[0]=arr3[0]+1;
+        arr3[1]=arr3[1]-60;
+    }
+    if(arr3[2]>60)
+    {
+        arr3[1]=arr3[1]+1;
+        arr3[2]=arr3[2]-60;
+    }
+    printf("First Time: %02d:%02d:%02d\n",t1.hours,t1.minutes,t1.seconds);
+    printf("Second Time: %02d:%02d:%02d\n",t2.hours,t2.minutes,t2.seconds);
+    printf("Sum of Times: %02d:%02d:%02d\n",arr3[0],arr3[1],arr3[2]);
+}
+int main()
+{
+    struct Time time1;
+    struct Time time2;
+    printf("Enter hours,minutes,seconds for first time:");
+    scanf("%d %d %d",&time1.hours,&time1.minutes,&time1.seconds);
+    printf("Enter hours,minutes,seconds for second time:");
+    scanf("%d %d %d",&time2.hours,&time2.minutes,&time2.seconds);
+    addTime(time1,time2);
+    return 0;
+}
