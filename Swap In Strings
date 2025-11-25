@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[100];
+    printf("Enter the string:");
+    fgets(str,sizeof(str),stdin);
+    int n=strlen(str);
+    char o,e;
+    int i;
+    for(i=0;i<n;i++)
+    {
+        if(i%2==0)
+        {
+           e=str[i]-1;
+           if(e<'a')
+           {
+               e=e+26;
+           }
+           str[i]=e;
+        }
+        else if(str[i]==' ')
+        {
+            continue;
+        }
+        else
+        {
+            o=str[i]+1;
+            if(o>'z')
+           {
+               o=o-26;
+           }
+           str[i]=o;
+            
+        }
+    }
+    printf("%s",str);
+    return 0;
+}
+
+
+
+
+/*C program to replace the letters in odd positions in a given string with
+the letters following them in the alphabetical order (i.e. a becomes b, p
+becomes q, z becomes a) and letters in even positions to be replaced by their
+previous letters.( a becomes z, b becomes a, c becomes b )*/
