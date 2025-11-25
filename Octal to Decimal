@@ -1,0 +1,19 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    int decimal_no=0,position=0,digit;
+    int octal_no,dupe;
+    printf("Enter octal number:");
+    scanf("%d",&octal_no);
+    dupe=octal_no;
+    while(octal_no!=0)
+    {
+        digit=octal_no%10;
+        decimal_no+=digit*pow(8,position);
+        octal_no=octal_no/10;
+        position++;
+    }
+    printf("Octal %d is Decimal %d",dupe,decimal_no);
+    return 0;
+}
