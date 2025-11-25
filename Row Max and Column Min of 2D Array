@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main()
+{
+    int m,n,i,j;
+    printf("Enter value of m:");
+    scanf("%d",&m);
+    printf("Enter value of n:");
+    scanf("%d",&n);
+    int arr[m][n];
+    printf("Enter the matrix elements:\n");
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            scanf("%d",&arr[i][j]);
+        }
+        
+    }
+    printf("Row-wise Maximum Elements:\n");
+    int maxr;
+    for(i=0;i<m;i++)
+    {
+        maxr=arr[i][0];
+        for(j=0;j<m;j++)
+        {
+         if(arr[i][j]>maxr)
+         {
+            maxr=arr[i][j]; 
+         }
+        }
+        printf("Row-%d Maximum: %d\n",i,maxr);
+    }
+    printf("Column-wise Minimum Elements:\n");
+    int minc;
+    for(i=0;i<n;i++)
+    {
+        minc=arr[0][i];
+        for(j=0;j<n;j++)
+        {
+            if(arr[j][i]<minc)
+            {
+                minc=arr[j][i];
+            }
+        }
+        printf("Column-%d Minimum: %d\n",i,minc);
+    }
+    return 0;
+}
