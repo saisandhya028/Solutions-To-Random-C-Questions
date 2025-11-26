@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+struct Birthday {
+    int arr[3];   // day, month, year
+    char name[50];
+};
+
+int main()
+{
+    struct Birthday p1, p2;
+
+    printf("Enter name of person 1: ");
+    fgets(p1.name, sizeof(p1.name), stdin);
+
+    printf("Enter date of birth of person 1 (dd mm yyyy): ");
+    scanf("%d %d %d", &p1.arr[0], &p1.arr[1], &p1.arr[2]);
+    getchar();
+
+    printf("Enter name of person 2: ");
+    fgets(p2.name, sizeof(p2.name), stdin);
+
+    printf("Enter date of birth of person 2 (dd mm yyyy): ");
+    scanf("%d %d %d", &p2.arr[0], &p2.arr[1], &p2.arr[2]);
+
+    
+    if (p1.arr[2] < p2.arr[2]) {
+        printf("%s is older than %s", p1.name, p2.name);
+    }
+    else if (p1.arr[2] > p2.arr[2]) {
+        printf("%s is older than %s", p2.name, p1.name);
+    }
+    else {
+        
+        if (p1.arr[1] < p2.arr[1]) {
+            printf("%s is older than %s", p1.name, p2.name);
+        }
+        else if (p1.arr[1] > p2.arr[1]) {
+            printf("%s is older than %s", p2.name, p1.name);
+        }
+        else {
+            
+            if (p1.arr[0] < p2.arr[0]) {
+                printf("%s is older than %s", p1.name, p2.name);
+            }
+            else if (p1.arr[0] > p2.arr[0]) {
+                printf("%s is older than %s", p2.name, p1.name);
+            }
+            else {
+                printf("Both were born on the same date.");
+            }
+        }
+    }
+
+    return 0;
+}
