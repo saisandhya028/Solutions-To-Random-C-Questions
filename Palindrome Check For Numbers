@@ -1,0 +1,40 @@
+
+#include <stdio.h>
+
+int main()
+{
+    int n,i;
+    printf("Enter the number of values:");
+    scanf("%d",&n);
+    int arr[n],arr1[100];
+    printf("Enter the numbers:");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    int pos=0;
+    for(i=0;i<n;i++)
+    {
+        int num=arr[i];
+        int temp=num;
+        int rev=0;
+        while(temp!=0)
+        {
+            rev=rev*10+(temp%10);
+            temp=temp/10;
+        }
+        if(rev==num)
+        {
+            arr1[pos]=num;
+            pos++;
+        }
+        
+    }
+    printf("\nPalindrome numbers are: ");
+    for(i=0;i<pos;i++)
+    {
+        printf("%d ", arr1[i]);
+    }
+    
+    return 0;
+}
