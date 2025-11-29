@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main()
+{
+    int decimal;
+    printf("Enter the decimal:");
+    scanf("%d",&decimal);
+    int n=decimal,q;
+    int i=0,j;
+    int bits[32];
+    if (decimal==0)
+    {
+        printf("The binary is %d",0);
+    }
+    else{
+    while(n!=0)
+    {
+       bits[i]=n%2;
+       n=n/2;
+       i++;
+    }
+    printf("The binary is ");
+    j=i-1;
+    while(j>=0)
+    {
+        printf("%d",bits[j]);
+        j--;
+    }
+    }
+    return 0;
+}
