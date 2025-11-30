@@ -1,0 +1,49 @@
+#include<stdio.h>
+int indexx;
+int search(int array[10],int search)
+{
+    int mid,low,high,found=0;
+    low=0;
+    high=9;
+    while(low<=high)
+    {
+        mid = (low+high)/2;
+        if(search>array[mid])
+        {
+            low=mid+1;
+        }
+        if(search==array[mid])
+        {
+            return 1;
+            indexx=mid;
+            break;
+        }
+        if(search<array[mid]){
+            high=mid-1;
+        }
+        
+    }
+    return -1;
+}
+int main()
+{
+    int arr[10];
+    int i;
+    printf("Enter array elements:\n");
+    for(i=0;i<10;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    int search_element,res;
+    printf("Enter search element:");
+    scanf("%d",&search_element);
+    res = search(arr,search_element);
+    if(res!=-1)
+    {
+        printf("Element found at index %d\n",indexx);
+    }
+    else{
+        printf("Element not found!\n");
+    }
+    return 0;
+}
