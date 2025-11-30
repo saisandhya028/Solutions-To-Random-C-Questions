@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int n1,n2,i;
+    printf("Enter no of elements in array A:");
+    scanf("%d",&n1);
+    printf("Enter no of elements in array B:");
+    scanf("%d",&n2);
+    int B[n2];
+    int *A=malloc(n1*sizeof(int));
+    printf("Elements of array A:\n");
+    for(i=0;i<n1;i++)
+    {
+        scanf("%d",&A[i]);
+    }
+    printf("Elements of array B:\n");
+    for(i=0;i<n2;i++)
+    {
+        scanf("%d",&B[i]);
+    }
+    int n=n1+n2,j=0,swap;
+    A=realloc(A,n*sizeof(int));
+    for(i=n1;i<n;i++)
+    {
+        A[i]=B[j];
+        j++;
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n-1-i;j++)
+        {
+          if(A[j+1]>A[j])
+          {
+              swap=A[j];
+              A[j]=A[j+1];
+              A[j+1]=swap;
+          }
+        }
+    }
+    printf("Concatenated array A:");
+    for(i=0;i<n;i++)
+    {
+        printf(" %d",A[i]);
+        
+    }
+    return 0;
+}
