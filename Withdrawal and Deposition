@@ -1,0 +1,64 @@
+#include <stdio.h>
+struct BankMgmt{
+    int accnumber;
+    char custname[50];
+    float avlbalance;
+};
+void deposit(struct BankMgmt *s1)
+{
+    float amt;
+    printf("Enter amount to deposit:");
+    scanf("%f",&amt);
+    if(amt>0){
+    s1->avlbalance=s1->avlbalance + amt;
+    printf("Deposit Successful\n");
+    printf("Updated Balance: %f\n",s1->avlbalance);
+}
+    else{
+        printf("Deposition amount must be greater than zero\n");
+        printf("Transaction Failed\n");
+    }
+}
+void withdraw(struct BankMgmt *s1)
+{
+    float amt;
+    printf("Enter amount to withdraw:");
+    scanf("%f",&amt);
+    if(s1->avlbalance ==0 || amt>s1->avlbalance || amt<=0)
+    {
+        printf("Invalid Withdrawal\n");
+    }
+    else{
+    s1->avlbalance=s1->avlbalance - amt;
+    printf("Withdrawal Succesful!\n");
+    printf("Updated Balance: %f\n",s1->avlbalance);
+    }
+}
+int main()
+{
+    struct BankMgmt S1;
+    printf("Enter the details of customer:\n");
+    printf("Enter Account Number:");
+    scanf("%d",&S1.accnumber);
+    getchar();
+    printf("Enter Name:");
+    fgets(S1.custname,sizeof(S1.custname),stdin);
+    printf("Enter available balance:");
+    scanf("%f",&S1.avlbalance);
+    getchar();
+    char oper[20];
+    printf("Operation:");
+    fgets(oper,sizeof(oper),stdin);
+    if(oper[0]=='D')
+    {
+    deposit(&S1);
+    }
+    else{
+    withdraw(&S1);
+    }
+    printf("*****Details of Customer*****\n");
+    printf("Account Number: %d\n",S1.accnumber);
+    printf("Customer Name: %s",S1.custname);
+    printf("Available Balance: %f\n",S1.avlbalance);
+    return 0;
+}
