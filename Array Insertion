@@ -1,0 +1,50 @@
+
+#include <stdio.h>
+
+int main()
+{
+    int n1,n2;
+    int i,j;
+    printf("Enter number of elements in array 1:");
+    scanf("%d",&n1);
+    printf("Enter number of elements in array 2:");
+    scanf("%d",&n2);
+    int arr1[n1],arr2[n2];
+    for(i=0;i<n1;i++)
+    {
+        scanf("%d",&arr1[i]);
+    }
+    for(j=0;j<n2;j++)
+    {
+        scanf("%d",&arr2[j]);
+    }
+    int pos_index,l2=n2;
+    printf("Position index:");
+    scanf("%d",&pos_index);
+    i=0;
+    while(l2>0)
+    {
+        
+        arr1[pos_index+n2+i]=arr1[pos_index+i];
+        i++;
+        l2--;
+        n1++;
+        
+    }
+    int k=0;
+    for(i=pos_index;i<pos_index+n2;i++)
+    {
+        arr1[i]=arr2[k];
+        k++;
+        
+    }
+    for(i=0;i<n1;i++)
+    {
+        printf("%d ",arr1[i]);
+    }
+
+
+
+/*Insert the content of one array into another array at specified position. Example: Input:  Array, a[] = {2,5,8,3,6} Array, b[] = {10, 20, 30} Position index = 3 Output: Array, a[] = {2,5,8,10,20,30,3,6}*/
+    return 0;
+}
