@@ -1,0 +1,49 @@
+ #include <stdio.h>
+
+int main()
+{
+    int arr[5][4];
+    int i,j;
+    printf("Enter the votes for 4 candidates in 5 constituencies:\n");
+    for(i=0;i<5;i++)
+    {
+        for(j=0;j<4;j++)
+        {
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    printf("First three candidates\n");
+    int votes[4],id[4],k,l,m,swap,tempVotes,tempId;
+    for(i=0;i<5;i++)
+    {
+        for(j=0;j<4;j++)
+        {
+            votes[j]=arr[i][j];
+            id[j]=j+1;
+        }
+        for(k=0;k<4;k++)
+        {
+            for(l=0;l<4-k-1;l++)
+            {
+                if(votes[l]<votes[l+1] ||(votes[l]==votes[l+1] && id[l]>id[l+1]))
+                {
+                    tempVotes=votes[l];
+                    votes[l]=votes[l+1];
+                    votes[l+1]=tempVotes;
+                    tempId=id[l];
+                    id[l]=id[l+1];
+                    id[l+1]=tempId;
+                    
+                }
+            }
+        }
+        printf("Constituency %d: ", i + 1);
+        for(j = 0; j < 3; j++)
+        {
+            printf("Id %d-%d ",id[j],votes[j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
