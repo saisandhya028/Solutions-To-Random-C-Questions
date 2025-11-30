@@ -1,0 +1,52 @@
+#include<stdio.h>
+struct NEETEXAM{
+    int application_number;
+    char candidate_name[30];
+    int DOB[3];
+    int scored_marks;
+};
+int main(){
+    int n;
+    printf("Enter no of candidates:");
+    scanf("%d",&n);
+    struct NEETEXAM S1[n];
+    int i,j=0;
+    for(i=0;i<n;i++)
+    {
+        printf("Details of candidate %d:\n",i+1);
+        printf("Enter application number:");
+        scanf("%d",&S1[i].application_number);
+        getchar();
+        printf("Enter candidate's name:");
+        fgets(S1[i].candidate_name,sizeof(S1[i].candidate_name),stdin);
+        printf("Enter candidate's DOB:");
+        for(j=0;j<3;j++){
+            scanf("%d",&S1[i].DOB[j]);
+        }
+        printf("Enter scored marks:");
+        scanf("%d",&S1[i].scored_marks);
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n-i-1;j++)
+        {
+            if(S1[j+1].scored_marks>S1[j].scored_marks)
+            {
+                struct NEETEXAM swap = S1[j];
+                S1[j]=S1[j+1];
+                S1[j+1]=swap;
+            }
+        }
+    }
+    printf("Details of candidate with minimum scored marks:\n");
+    printf("Application Number: %d\n",S1[0].application_number);
+    printf("Candidate Name: %s",S1[0].candidate_name);
+    printf("DOB: %02d %02d %d\n",S1[0].DOB[0],S1[0].DOB[1],S1[0].DOB[2]);
+    printf("Scored Marks: %d\n",S1[0].scored_marks);
+    printf("Details of candidate with maximmum scored marks:\n");
+    printf("Application Number: %d\n",S1[n-1].application_number);
+    printf("Candidate Name: %s",S1[n-1].candidate_name);
+    printf("DOB: %02d %02d %d\n",S1[n-1].DOB[0],S1[n-1].DOB[1],S1[0].DOB[2]);
+    printf("Scored Marks: %d\n",S1[n-1].scored_marks);
+    
+}
