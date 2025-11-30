@@ -1,0 +1,57 @@
+#include<stdio.h>
+int main()
+{
+    char string[100];
+    int shift_value;
+    printf("Enter a string:");
+    fgets(string,sizeof(string),stdin);
+    printf("Enter shift value:");
+    scanf("%d",&shift_value);
+    int k;
+    /*for(k=0;string[k]!='\0';k++)
+    {
+        if(string[k]=='\n')
+        {
+            string[k]='\0';
+            break;
+        }
+    }*/
+    int i=0;
+    int ch;
+    while(string[i]!='\0')
+    {
+           if(string[i]>='a' && string[i]<='z')
+           {
+               ch=string[i]+shift_value;
+               if(ch>'z')
+               {
+                   ch=ch-26;
+               }
+               
+           }
+           else if(string[i]>='A' && string[i]<='Z')
+           {
+               ch=string[i]+shift_value;
+               if(ch>'Z')
+               {
+                   ch=ch-26;
+               }
+           }
+           else{
+               ch=string[i];
+           }
+           string[i]=ch;
+    i++;
+        
+    }
+    for(i=0;string[i]!='\0';i++)
+    {
+        if(string[i]!=' ')
+        {
+            printf("%c",string[i]);
+        }
+    }
+    
+    return 0;
+    
+}
