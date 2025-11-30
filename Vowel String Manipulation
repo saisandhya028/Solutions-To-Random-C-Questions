@@ -1,0 +1,47 @@
+#include <stdio.h>
+void count(char str[])
+{
+    int i=0,vowels=0,consonants=0;
+    while(str[i]!='\0')
+    {
+        if((str[i]>='a' && str[i]<='z') || (str[i]>='A'&& str[i]<='Z'))
+        {
+            if(str[i]=='a' || str[i]=='e' || str[i]=='i' || str[i]=='o' || str[i]=='u'|| str[i]=='A' || str[i]=='E' || str[i]=='I' || str[i]=='O' || str[i]=='U')
+            {
+                vowels++;
+            }
+            else{
+                consonants++;
+            }
+
+        }
+    
+        i++;
+    }
+    printf("Vowel count: %d\n",vowels);
+    printf("Consosnants count: %d\n",consonants);
+}
+void replace_vowel(char str[])
+{
+  int i=0;
+    while(str[i]!='\0')
+    {
+        if((str[i]>='a' && str[i]<='z') || (str[i]>='A'&& str[i]<='Z'))
+        {
+            if(str[i]=='a' || str[i]=='e' || str[i]=='i' || str[i]=='o' || str[i]=='A' || str[i]=='E' || str[i]=='I' || str[i]=='O' || str[i]=='U')
+            {
+                str[i]='-';
+            }  
+        }
+    i++;
+    }
+    printf("The modified string: %s\n",str);
+}
+int main()
+{
+    char string[]="Ayodhya";
+    count(string);
+    replace_vowel(string);
+
+    return 0;
+}
