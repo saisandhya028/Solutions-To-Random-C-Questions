@@ -1,0 +1,53 @@
+#include<stdio.h>
+struct Family{
+    char hname[30];
+    int tmem;
+    float tincome;
+    float texp;
+};
+
+int main()
+{
+    int n,i;
+    printf("Enter no of families:");
+    scanf("%d",&n);
+    struct Family S1[n];
+    for(i=0;i<n;i++)
+    {
+        printf("Enter details of family %d\n",i+1);
+        getchar();
+        printf("Enter the family head's name:");
+        fgets(S1[i].hname,sizeof(S1[i].hname),stdin);
+        printf("Enter the total number of members:");
+        scanf("%d",&S1[i].tmem);
+        printf("Enter the family's total income:");
+        scanf("%f",&S1[i].tincome);
+        printf("Enter the family's total expenditure:");
+        scanf("%f",&S1[i].texp);
+    }
+    if(n!=1)
+    {float max=S1[0].tincome;
+    int j;
+    for(i=0;i<n;i++)
+    {
+        if(S1[i].tincome>max)
+        {
+            max=S1[i].tincome;
+            j=i;
+        }
+    }
+    printf("Details of family with maximum income:\n");
+    printf("%s",S1[j].hname);
+    printf("%d\n",S1[j].tmem);
+    printf("%.2f\n",S1[j].tincome);
+    printf("%.2f\n",S1[j].texp);
+    }
+    else{
+        printf("Details of family with maximum income:\n");
+    printf("%s",S1[0].hname);
+    printf("%d\n",S1[0].tmem);
+    printf("%.2f\n",S1[0].tincome);
+    printf("%.2f\n",S1[0].texp);
+    }
+    return 0;
+}
