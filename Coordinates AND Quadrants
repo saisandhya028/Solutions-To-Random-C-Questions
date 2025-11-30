@@ -1,0 +1,52 @@
+#include<stdio.h>
+struct POINT{
+    int X;
+    int Y;
+    int Q;
+};
+int main()
+{
+    struct POINT S1;
+    printf("Enter x coordinate:");
+    scanf("%d",&S1.X);
+    printf("Enter y coordinate:");
+    scanf("%d",&S1.Y);
+    if(S1.X!=0 && S1.Y!=0){
+    if(S1.X>0 && S1.Y>0)
+    {
+        S1.Q=1;
+    }
+    if(S1.X>0 && S1.Y<0)
+    {
+        S1.Q=4;
+    }
+    if(S1.X<0 && S1.Y>0)
+    {
+        S1.Q=2;
+    }
+    if(S1.X<0 && S1.Y<0)
+    {
+        S1.Q=1;
+    }
+    printf("Details of the coordinates:\n");
+    printf("X coordinate: %d\n",S1.X);
+    printf("Y coordinate: %d\n",S1.Y);
+    printf("Quadrant: %d\n",S1.Q);
+    }
+    else{
+        if(S1.X==0 && S1.Y==0){
+        printf("The coordinates are of origin\n");}
+        if(S1.X==0 && S1.Y!=0)
+        {
+            printf("The point is on y axis\n");
+        }
+        if(S1.Y==0 && S1.X!=0)
+        {
+            printf("The point is on x axis\n");
+        }
+        
+    }
+    
+    
+    return 0;
+}
